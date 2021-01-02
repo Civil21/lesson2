@@ -1,0 +1,16 @@
+<h1>
+  <%= @sweet_product.name%>
+</h1>
+<span>
+  <%= @sweet_product.price%>
+  грн. за 100 грам
+</span>
+<%= sweet_product_image @sweet_product.image%>
+<div class="">
+  <% @sweet_product.images.each do|image|%>
+    <%= image_tag image%>
+  <%end%>
+</div>
+<p>
+  <%= @sweet_product.description%>
+</p>
