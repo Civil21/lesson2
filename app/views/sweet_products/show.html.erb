@@ -1,6 +1,11 @@
 <h1>
   <%= @sweet_product.name%>
 </h1>
+<div class="">
+  <%@sweet_product.categories.each do |category|%>
+    <%= link_to category.name, category_path(category),class: "badge bg-secondary"%>
+  <%end%>
+</div>
 <span>
   <%= @sweet_product.price%>
   грн. за 100 грам

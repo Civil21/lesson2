@@ -2,7 +2,11 @@
 </h1>
 <h5>Кількість результатів
   <%= @sweet_products.count %></h5>
-<div class="row">
+  <div class="row" id="sweet_products">
 
-  <%= render @sweet_products%>
-</div>
+    <%= render @sweet_products%>
+
+  </div>
+  <% if @count > $PER_PAGE%>
+    <%= render "paginations" %>
+  <%end%>

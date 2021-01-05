@@ -2,5 +2,10 @@
   <%= link_to sweet_product_path(sweet_product) do %>
   <%= sweet_product_image(sweet_product.image) %>
   <%= sweet_product.name%>
+  <div class="">
+    <%sweet_product.categories.each do |category|%>
+      <%= link_to category.name, category_path(category),class: "badge bg-secondary"%>
+    <%end%>
+  </div>
 <%end%>
 </div>

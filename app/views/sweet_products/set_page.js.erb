@@ -1,0 +1,5 @@
+console.log("js work!")
+catalog = document.getElementById("sweet_products")
+catalog.innerHTML = '<%=j render @sweet_products%>'
+pagination = document.getElementById("pagination")
+pagination.innerHTML= '<%=j render "paginations" %>'

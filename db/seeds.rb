@@ -5,4 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+if Rails.env.development?
+  AdminUser.first_or_create(email: 'admin@example.com', password: 'password',
+                            password_confirmation: 'password')
+end
+
+sweet_products = []
+20.times do
+  sweet_products << {
+    name: Faker::Food.fruits,
+    description: Faker::Food.description,
+    set_image: 'https://picsum.photos/300'
+  }
+end
+SweetProduct.create!(sweet_products)

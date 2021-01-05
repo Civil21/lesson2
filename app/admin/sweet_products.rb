@@ -4,11 +4,12 @@ ActiveAdmin.register SweetProduct do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :description, :sugar_substitute, :price, :content, :image, images: []
+  permit_params :name, :description, :sugar_substitute, :price, :content, :image, :category_names, images: []
 
   form do |f|
     f.inputs do
       f.input :name
+      f.input :category_names
       f.input :description, as: :text
       f.input :sugar_substitute
       f.input :price
@@ -35,6 +36,13 @@ ActiveAdmin.register SweetProduct do
             span image_tag image
           end
         end
+      end
+      row :category_names
+    end
+    panel 'Categories' do
+      table_for sweet_product.categories do
+        column :id
+        column { |c| link_to c.name, admin_category_path(c.id) }
       end
     end
     active_admin_comments
