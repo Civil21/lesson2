@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   private
 
   def page
-    @page ||= params[:page].to_i || 1
+    @page ||= (params[:page] || 1).to_i
   end
 end

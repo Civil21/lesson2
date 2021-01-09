@@ -4,11 +4,12 @@ export function pagination_js(button) {
     type: "GET",
     url: "/set_page",
     data: "page="+button.dataset.page,
-    success: function(repsonse){
+    success: function(response){
       console.log("succses response")
-      window.location.href=  window.location.href
+      
+      //window.location.href=  window.location.href
     },
-    error: function(repsonse){
+    error: function(response){
       console.log("error")
     }
   })

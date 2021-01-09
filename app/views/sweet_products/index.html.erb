@@ -5,5 +5,7 @@
 
 </div>
 <% if @count > $PER_PAGE%>
-  <%= render "paginations" %>
+  <div id="paginations">
+    <%= render "paginations" %>
+  </div>
 <%end%>
