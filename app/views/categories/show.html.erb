@@ -1,9 +1,2 @@
 <h1><%=@category.name%></h1>
-<div class="row" id="sweet_products">
-
-  <%= render @sweet_products%>
-
-</div>
-<% if @count > $PER_PAGE%>
-  <%= render "paginations" %>
-<%end%>
+<%= render "sweet_products/catalog"%>

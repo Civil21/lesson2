@@ -1,25 +1,24 @@
 class SweetProductsController < ApplicationController
-  def index
-    @sweet_products = SweetProduct.all
-    @count = @sweet_products.count
-    @sweet_products = @sweet_products.page(page).per($PER_PAGE).with_attached_image.includes(:categories)
-  end
+  before_action :categories, only: %i[index search]
 
-  def set_page
-    @sweet_products = SweetProduct.all
-    @count = @sweet_products.count
-    @sweet_products = @sweet_products.page(page).per($PER_PAGE).with_attached_image.includes(:categories)
-    respond_to :js
+  def index
+    @sugar_substitute = params[:sugar_substitute]
+    @sweet_products = sweet_products.where(sugar_substitute: @sugar_substitute) if params[:sugar_substitute]
+
+    pagination
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def show
     @sweet_product = SweetProduct.find(params[:id])
   end
 
-  def search
-    @search = params[:search]
-    @sweet_products = SweetProduct.where("name LIKE '%#{params[:search]}%'").or(SweetProduct.where("description LIKE '%#{params[:search]}%'"))
-    @count = @sweet_products.count
-    @sweet_products = @sweet_products.page(page).per($PER_PAGE).with_attached_image.includes(:categories)
+  private
+
+  def categories
+    @categories ||= Category.all
   end
 end

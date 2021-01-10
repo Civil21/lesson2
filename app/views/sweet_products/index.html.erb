@@ -1,11 +1,2 @@
 <h1>Каталог</h1>
-<div class="row" id="sweet_products">
-
-  <%= render @sweet_products%>
-
-</div>
-<% if @count > $PER_PAGE%>
-  <div id="paginations">
-    <%= render "paginations" %>
-  </div>
-<%end%>
+<%= render "sweet_products/catalog"%>

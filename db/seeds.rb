@@ -15,7 +15,9 @@ sweet_products = []
   sweet_products << {
     name: Faker::Food.fruits,
     description: Faker::Food.description,
-    set_image: 'https://picsum.photos/300'
+    set_image: 'https://picsum.photos/300',
+    sugar_substitute: true
   }
 end
-SweetProduct.create!(sweet_products)
+SweetProduct.create(sweet_products)
+SweetProduct.limit(20).each { |x| x.update(category_names: '2') }

@@ -80,10 +80,10 @@ ActiveRecord::Schema.define(version: 2021_01_04_202426) do
   end
 
   create_table "sweet_products", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description"
-    t.boolean "sugar_substitute"
-    t.float "price"
+    t.boolean "sugar_substitute", default: false, null: false
+    t.float "price", default: 23.5, null: false
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

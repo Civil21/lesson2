@@ -1,17 +1,20 @@
-<nav>
-  <%= link_to root_path do %>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+  <%= link_to root_path, class:"navbar-brand" do %>
   "Мармеладний кіт"
 <%end%>
 
 
 <%= link_to "Каталог", sweet_products_path%>
 
-<%= form_tag search_path, method: :get, class: "navbar-form navbar-left search-form" do %>
+<%= form_tag search_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag(
       :search,
       params[:search],
       placeholder: "Search",
-      class: "form-control"
+      class: "form-control  me-2"
   ) %>
+        <button class="btn btn-outline-success" type="submit">Search</button>
 <% end %>
+</div>
 </nav>
