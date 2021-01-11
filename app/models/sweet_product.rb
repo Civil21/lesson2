@@ -5,11 +5,19 @@ class SweetProduct < ApplicationRecord
   has_many :category_sweet_products
   has_many :categories, through: :category_sweet_products
 
+  has_rich_text :description
+
+  has_one :action_text_rich_text,
+          as: :record
+
+  scope :sugar_substitute_true, -> { where(sugar_substitute: true) }
+  scope :sugar_substitute_false, -> { where(sugar_substitute: false) }
+
   def category_names=(names)
     category_sweet_products.delete_all
     names.split(',').map(&:strip).uniq.each do |category_name|
       category_id = Category.find_or_create_by(name: category_name.to_s.downcase).id
-      CategorySweetProduct.create!(sweet_product_id: id, category_id: category_id)
+      CategorySweetProduct.create(sweet_product_id: id, category_id: category_id)
     end
   end
 

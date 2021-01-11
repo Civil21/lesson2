@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @sweet_products = @category.sweet_products
+    search
     pagination
     respond_to do |format|
       format.js

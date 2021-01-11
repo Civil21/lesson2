@@ -1,20 +1,24 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
   <%= link_to root_path, class:"navbar-brand" do %>
-  "Мармеладний кіт"
+  "<%=t "navbar.title" %>"
 <%end%>
 
 
-<%= link_to "Каталог", sweet_products_path%>
+<%= link_to t("navbar.catalog"), sweet_products_path%>
+<%= get_locale%>
+<% I18n.available_locales.each do |locale|%>
+  <%=link_to locale, url_for(locale: locale) if locale.to_s != get_locale%>
+<%end%>
 
-<%= form_tag search_path, method: :get, class: "d-flex" do %>
+<%= form_tag url_for(), method: :get, class: "d-flex" do %>
   <%= text_field_tag(
       :search,
       params[:search],
-      placeholder: "Search",
+      placeholder: t("navbar.search.placeholder"),
       class: "form-control  me-2"
   ) %>
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-success" type="submit"><%=t "navbar.search.button" %></button>
 <% end %>
 </div>
 </nav>

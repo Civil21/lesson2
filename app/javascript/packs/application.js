@@ -14,6 +14,10 @@ ActiveStorage.start()
 
 import "bootstrap"
 import "../stylesheets/application";
-import {pagination_js,change_sugar_substitute} from "./custom"
+import {pagination_js,change_sugar_substitute, search} from "./custom"
 window.pagination_js = pagination_js
 window.change_sugar_substitute = change_sugar_substitute
+window.search = search
+
+import "trix"
+import "@rails/actiontext"

@@ -30,3 +30,18 @@ export function change_sugar_substitute(selector) {
     }
   })
 }
+export function search(text) {
+  console.log(window.location.href.split("/"))
+  Rails.ajax({
+    type: "GET",
+    url: window.location.href,
+    data: "search="+text,
+    success: function(response){
+      console.log("succses response")
+      //window.location.href=  window.location.href
+    },
+    error: function(response){
+      console.log("error")
+    }
+  })
+}

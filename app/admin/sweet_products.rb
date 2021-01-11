@@ -6,11 +6,31 @@ ActiveAdmin.register SweetProduct do
   #
   permit_params :name, :description, :sugar_substitute, :price, :content, :image, :category_names, images: []
 
+  filter :name
+  filter :categies
+  filter :price
+  filter :created_at
+  filter :updated_at
+
+  scope 'Мicтить цукoр', :sugar_substitute_true
+  scope 'Не мicтить цукру', :sugar_substitute_false
+
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :sugar_substitute
+    column :price
+    column :created_at
+    column :updated_at
+    actions
+  end
+
   form do |f|
     f.inputs do
       f.input :name
       f.input :category_names
-      f.input :description, as: :text
+      f.input :description, as: :trix_editor
       f.input :sugar_substitute
       f.input :price
       f.input :content, as: :text
@@ -23,7 +43,11 @@ ActiveAdmin.register SweetProduct do
   show do
     attributes_table do
       row :name
-      row :description
+      row :description do
+        div do
+          sweet_product.description
+        end
+      end
       row :price
       row :sugar_substitute
       row :content

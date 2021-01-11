@@ -2,6 +2,7 @@ class SweetProductsController < ApplicationController
   before_action :categories, only: %i[index search]
 
   def index
+    search
     @sugar_substitute = params[:sugar_substitute]
     @sweet_products = sweet_products.where(sugar_substitute: @sugar_substitute) if params[:sugar_substitute]
 
