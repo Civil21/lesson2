@@ -15,6 +15,19 @@ ActiveAdmin.register SweetProduct do
   scope 'Мicтить цукoр', :sugar_substitute_true
   scope 'Не мicтить цукру', :sugar_substitute_false
 
+  action_item :import, except: :import do
+    link_to t('import'), admin_sweet_products_import_path
+  end
+
+  controller do
+    def import; end
+
+    def import_file
+      SweetProduct.import(params[:file])
+      redirect_to admin_sweet_products_path
+    end
+  end
+
   index do
     selectable_column
     id_column

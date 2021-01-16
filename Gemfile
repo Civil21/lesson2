@@ -33,6 +33,9 @@ gem 'trix'
 
 gem 'http_accept_language'
 
+# імпорт exel
+gem 'roo', '~> 2.8.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
