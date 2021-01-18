@@ -1,2 +1,2 @@
 <h1>Каталог</h1>
-<%= render "sweet_products/catalog"%>
+<%= render CatalogComponent.new(sweet_products: @sweet_products, categories: @categories)%>

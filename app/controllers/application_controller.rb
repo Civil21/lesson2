@@ -28,9 +28,10 @@ class ApplicationController < ActionController::Base
   # end
 
   def search
-    @search = params[:search]
     # find_in_text
-    @sweet_products = sweet_products.where("lower(name) LIKE '%#{params[:search]&.downcase}%'")
+    if (@search = params[:search])
+      @sweet_products = sweet_products.where("lower(name) LIKE '%#{params[:search]&.downcase}%'")
+    end
   end
 
   def pagination

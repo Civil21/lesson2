@@ -3,8 +3,9 @@ class SweetProductsController < ApplicationController
 
   def index
     search
-    @sugar_substitute = params[:sugar_substitute]
-    @sweet_products = sweet_products.where(sugar_substitute: @sugar_substitute) if params[:sugar_substitute]
+    unless (@sugar_substitute = params[:sugar_substitute]).blank?
+      @sweet_products = sweet_products.where(sugar_substitute: @sugar_substitute)
+    end
 
     pagination
     respond_to do |format|

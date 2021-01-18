@@ -39,6 +39,10 @@ gem 'roo', '~> 2.8.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'view_component', require: 'view_component/engine'
+
+gem 'telegram-bot-ruby'
+
 group :development, :test do
   gem 'faker'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
