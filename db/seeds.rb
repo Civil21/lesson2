@@ -15,9 +15,17 @@ sweet_products = []
   sweet_products << {
     name: Faker::Food.fruits,
     description: Faker::Food.description,
-    set_image: 'https://picsum.photos/300',
-    sugar_substitute: true
+    set_image: 'https://loremflickr.com/320/320/sweets',
+    sugar_substitute: [true, false].sample
   }
 end
 SweetProduct.create(sweet_products)
-SweetProduct.limit(20).each { |x| x.update(category_names: '2') }
+
+SweetProduct.limit(20).each do |x|
+  x.update(
+    category_names: 3.times.map do
+                      ['шоколадні цукерки', 'льодяники', 'карамель', 'ірис', 'вафельні цукерки', 'цукати',
+                       'марципани', 'батончики', 'желейні цукерки', 'зефір'].sample
+                    end.join(',')
+  )
+end
