@@ -4,7 +4,7 @@ uk:
       long: "%F AS %T%:z    "
   navbar:
     title: Мармеладний кіт
-    catalog: Крамниця солодощів
+    catalog: Каталог солодощів
     search:
       placeholder: Пошук...
       button: Знайти
