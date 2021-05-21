@@ -30,3 +30,20 @@
     }
   }
 }
+
+.pagination{
+  .page-item{
+    .page-link{
+      color: $secondary-hover;
+      &:focus{
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    &.disabled{
+      .page-link{
+        color: lightgray;
+      }
+    }
+  }
+}

@@ -22,3 +22,18 @@ header{
     color: white;
   }
 }
+
+footer{
+  color: white;
+    background-color: $primary-color;
+    .navbar-brand{
+      transition: .5s;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $secondary-hover;
+      &:hover{
+        color: $secondary-color;
+      }
+    }
+}
