@@ -14,5 +14,5 @@ test:
 production:
   <<: *default
   database: ror_a_site2_production
-  username: rik
+  username: ror_a_site2
   password: <%= ENV['ROR_A_SITE2_DATABASE_PASSWORD'] %>
