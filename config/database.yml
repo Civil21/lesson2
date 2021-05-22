@@ -1,18 +1,18 @@
+
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
+  timeout: 5000
+  host: localhost
 development:
   <<: *default
-  database: ror_a_site2_development
-
+  database: ror_a_site2
 test:
   <<: *default
   database: ror_a_site2_test
-
 production:
   <<: *default
-  database: ror_a_site2_production
-  username: ror_a_site2
-  password: <%= ENV['ROR_A_SITE2_DATABASE_PASSWORD'] %>
+  database: ror_a_site2
