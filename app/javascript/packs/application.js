@@ -24,8 +24,6 @@ import "@rails/actiontext"
 
 import Typed from 'typed.js';
 
-
-
 //+ та - в кошику
 document.addEventListener("turbolinks:load", function() {
   var typed = new Typed('#typed', {
