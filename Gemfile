@@ -43,8 +43,8 @@ gem 'view_component', require: 'view_component/engine'
 
 gem 'telegram-bot-ruby'
 
+gem 'faker'
 group :development, :test do
-  gem 'faker'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
